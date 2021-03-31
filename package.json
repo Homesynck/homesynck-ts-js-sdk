@@ -15,7 +15,6 @@
   "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "phoenix": "^1.5.8",
     "phoenix-channels": "^1.0.0"
   },
   "devDependencies": {
