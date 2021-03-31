@@ -1,8 +1,12 @@
 {
-  "name": "homesynck_js_sdk",
+  "name": "homesynck-sdk",
   "version": "0.1.0",
   "description": "SDK for Homesynck",
-  "main": "dist/app.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "start": "tsc && node dist/examples/main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
