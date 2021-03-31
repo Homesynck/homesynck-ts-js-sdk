@@ -1,4 +1,4 @@
-import { HomesynckDirectory, init } from "homesynck-sdk"
+import { init } from "homesynck-sdk"
 
 const URL = "http://localhost:4000/socket";
 
@@ -25,13 +25,10 @@ async function main() {
     }
 }
 
-function mySplendidReactiveFunction(update:{instructions:string, rank:number}, state:any) {
+function mySplendidReactiveFunction(update, state) {
     console.log("Received Update: \n" + JSON.stringify(update))
     
-    let instructionsDecoded:{
-        type: string,
-        value: number
-    } = JSON.parse(update.instructions)
+    let instructionsDecoded = JSON.parse(update.instructions)
 
     if(instructionsDecoded.type == "add") {
         state.value += instructionsDecoded.value
@@ -44,7 +41,7 @@ function mySplendidReactiveFunction(update:{instructions:string, rank:number}, s
     return state;
 }
 
-async function pushRandomUpdates(directory: HomesynckDirectory) {
+async function pushRandomUpdates(directory) {
     if(Math.random() < 0.1) {
         await directory.pushInstructions({
             type: "add",
@@ -60,11 +57,11 @@ async function pushRandomUpdates(directory: HomesynckDirectory) {
     await sleep(getRandomArbitrary(50, 100))
 }
 
-function getRandomArbitrary(min:number, max:number) {
+function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min; 
 }
 
-async function sleep(ms:number) {
+async function sleep(ms) {
     new Promise(resolve => setTimeout(resolve, ms));
 } 
 
