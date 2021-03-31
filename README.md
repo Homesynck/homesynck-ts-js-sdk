@@ -1,5 +1,31 @@
 # Homesynck SDK (Javascript & Typescript)
-An easy API to harvest the power from your [Homesynck server](https://github.com/Homesynck/homesynck-server).
+An easy API to harness the power of your [Homesynck server](https://github.com/Homesynck/homesynck-server).
+
+# Installation
+## Browser
+```html
+<script src="https://cdn.jsdelivr.net/npm/homesynck-sdk@1.0.4/browser/bundle.js"></script>
+```
+
+
+
+## Node.js
+```bash
+npm i homesynck-sdk
+```
+
+```js
+import { init, HomesynckConnection, HomesynckDirectory } from "homesynck-sdk";
+```
+
+## Deno
+Just do:
+
+```js
+import { init, HomesynckConnection, HomesynckDirectory } from "homesynck-sdk";
+```
+
+## Browser 
 
 # Tutorial
 **Step 1:** Init connection & login
