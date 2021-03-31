@@ -1,7 +1,7 @@
+![thumbnail](res/thumbnail.png)
+
 # Homesynck SDK (Javascript & Typescript)
 An easy API to harness the power of your [Homesynck server](https://github.com/Homesynck/homesynck-server).
-
-![thumbnail](res/thumbnail.png)
 
 # Installation
 ## Browser
