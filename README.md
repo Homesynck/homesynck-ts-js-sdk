@@ -7,7 +7,9 @@ An easy API to harness the power of your [Homesynck server](https://github.com/H
 <script src="https://cdn.jsdelivr.net/npm/homesynck-sdk@1.0.4/browser/bundle.js"></script>
 ```
 
-
+```js
+const { init, HomesynckConnection, HomesynckDirectory } = require("homesynck-sdk");
+```
 
 ## Node.js
 ```bash
@@ -15,7 +17,10 @@ npm i homesynck-sdk
 ```
 
 ```js
+// If supported:
 import { init, HomesynckConnection, HomesynckDirectory } from "homesynck-sdk";
+// Otherwise
+const { init, HomesynckConnection, HomesynckDirectory } = require("homesynck-sdk");
 ```
 
 ## Deno
