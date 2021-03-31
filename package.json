@@ -1,7 +1,7 @@
 {
   "name": "homesynck-sdk",
   "version": "1.0.0",
-  "description": "SDK for Homesynck",
+  "description": "The easy asynchronous SDK for Homesynck",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
