@@ -30,8 +30,6 @@ Just do:
 import { init, HomesynckConnection, HomesynckDirectory } from "homesynck-sdk";
 ```
 
-## Browser 
-
 # Tutorial
 **Step 1:** Init connection & login
 ```js
