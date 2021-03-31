@@ -3,8 +3,10 @@ An easy API to harness the power of your [Homesynck server](https://github.com/H
 
 # Installation
 ## Browser
+Replacing `<VERSION>` by the version you want:
+
 ```html
-<script src="https://cdn.jsdelivr.net/npm/homesynck-sdk@1.0.4/browser/bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/homesynck-sdk@<VERSION>/browser/bundle.js"></script>
 ```
 
 ```js
