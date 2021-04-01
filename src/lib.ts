@@ -38,7 +38,7 @@ export class HomesynckConnection {
                 });
         })
         let resp = await new Promise((resolve, reject) => {
-            channel.push("login", credentials)
+            channel.push("login", credentials, 50000)
                 .receive("ok", resp => {
                     resolve(resp);
                 })
@@ -181,7 +181,7 @@ export class HomesynckDirectory {
             channel.push("push_update", {
                 rank: rank,
                 instructions: JSON.stringify(instructions),
-            })
+            }, 50000)
                 .receive("ok", resp => {   
                     resolve(resp);
                 })

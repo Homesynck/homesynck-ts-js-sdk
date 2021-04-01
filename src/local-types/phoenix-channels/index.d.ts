@@ -10,6 +10,6 @@ declare module "phoenix-channels" {
     export class Channel {
         join(timeout?:number): Channel;
         receive(event:string, callback:(resp:any) => void): Channel
-        push(event:string, payload:any): Channel
+        push(event:string, payload:any, timeout:number): Channel
     }
 }

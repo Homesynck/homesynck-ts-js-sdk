@@ -13,9 +13,9 @@ const lib_1 = require("../lib");
 const URL = "http://localhost:4000/socket";
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        let bigMatrix = [];
-        for (let x = 0; x < (1920 * 1080 * 3); x++) {
-            bigMatrix.push(1);
+        let bigMatrix = "";
+        for (let x = 0; x < (1920 * 3); x++) {
+            bigMatrix += "@";
         }
         console.log("matrix created");
         let connection = yield lib_1.init(URL);
@@ -32,7 +32,10 @@ function main() {
     });
 }
 function mySplendidReactiveFunction(update, state) {
-    if (update.rank % 100 == 0) {
+    if (update.rank == 1) {
+        console.log(JSON.stringify(update));
+    }
+    if (update.rank % 10 == 0) {
         console.log(`[${update.rank}]: ~${update.rank} 1920*1080px images sent`);
     }
     return state;
