@@ -13,57 +13,28 @@ const lib_1 = require("../lib");
 const URL = "http://localhost:4000/socket";
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
+        let bigMatrix = [];
+        for (let x = 0; x < (1920 * 1080 * 3); x++) {
+            bigMatrix.push(1);
+        }
+        console.log("matrix created");
         let connection = yield lib_1.init(URL);
         yield connection.login({
             login: "admin",
             password: "superpassword"
         });
-        let directory = yield connection.openOrCreateDirectory("Test");
-        directory.setInitialState({
-            value: 0
-        });
+        let directory = yield connection.openOrCreateDirectory(`Test:${Math.random()}`);
         directory.onUpdateReceived(mySplendidReactiveFunction);
         yield directory.startSyncing();
         while (true) {
-            yield pushRandomUpdates(directory);
+            yield directory.pushInstructions(bigMatrix);
         }
     });
 }
 function mySplendidReactiveFunction(update, state) {
-    console.log("Received Update: \n" + JSON.stringify(update));
-    let instructionsDecoded = JSON.parse(update.instructions);
-    if (instructionsDecoded.type == "add") {
-        state.value += instructionsDecoded.value;
+    if (update.rank % 100 == 0) {
+        console.log(`[${update.rank}]: ~${update.rank} 1920*1080px images sent`);
     }
-    else if (instructionsDecoded.type == "multiply") {
-        state.value *= instructionsDecoded.value;
-    }
-    console.log(`[${update.rank}]: ` + JSON.stringify(state));
     return state;
-}
-function pushRandomUpdates(directory) {
-    return __awaiter(this, void 0, void 0, function* () {
-        if (Math.random() < 0.1) {
-            yield directory.pushInstructions({
-                type: "add",
-                value: getRandomArbitrary(-100, 100)
-            });
-        }
-        else if (Math.random() < 0.2) {
-            yield directory.pushInstructions({
-                type: "multiply",
-                value: getRandomArbitrary(-10, 10)
-            });
-        }
-        yield sleep(getRandomArbitrary(50, 100));
-    });
-}
-function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-}
-function sleep(ms) {
-    return __awaiter(this, void 0, void 0, function* () {
-        new Promise(resolve => setTimeout(resolve, ms));
-    });
 }
 main();
