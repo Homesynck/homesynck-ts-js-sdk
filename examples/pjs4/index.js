@@ -1,6 +1,9 @@
 import homesynck from "homesynck-sdk"
 import kleur from 'kleur'
 import prompts from 'prompts'
+import dotenv from "dotenv";
+
+dotenv.config()
 
 async function main() {
     let connection = await homesynck.init(process.env.HOMESYNCK_URL)
