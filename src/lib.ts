@@ -180,7 +180,7 @@ export class HomesynckDirectory {
         const resp = await new Promise((resolve, reject) => {
             channel.push("push_update", {
                 rank: rank,
-                instructions: JSON.stringify(instructions),
+                instructions: instructions,
             }, 50000)
                 .receive("ok", resp => {   
                     resolve(resp);
